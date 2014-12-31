@@ -2,9 +2,10 @@ import hashlib
 class FoundFile:
     FileName =''
     hash5='' 
-    def __init__ (self,FileName):
+    def __init__ (self,FileName,readHash=False):
         self.FileName = FileName
-        hash5 = hashlib.md5(open(FileName, 'rb').read()).hexdigest()
+        if ( readHash == True):
+            self.hash5 = hashlib.md5(open(FileName, 'rb').read()).hexdigest()
      
     def setName(self,newFileName):
         self.FileName = newFileName    
