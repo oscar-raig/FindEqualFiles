@@ -7,7 +7,7 @@ class FoundFile:
         self.FileName = FileName
         if ( readHash == True):
             self.hash5 = hashlib.md5(open(FileName, 'rb').read()).hexdigest()
-        self.directory={}
+        self.directory=''
      
     def setName(self,newFileName):
         self.FileName = newFileName    
@@ -19,8 +19,7 @@ class FoundFile:
     def getHash (self):
         return self.hash5
     def setDirectory(self,directory):
-        print "Number Of directories",len(self.directory)
-        self.directory[directory] = directory
+        self.directory = directory
     def getDirectory(self):
         return self.directory
     
