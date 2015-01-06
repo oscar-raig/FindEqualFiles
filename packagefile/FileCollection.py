@@ -113,7 +113,7 @@ class FileCollection:
             print "File No",counterOfRepatedFiles
             counterOfRepatedFiles = counterOfRepatedFiles + 1
             print fileinList.getName()
-            listDirectory = fileinList.getDirectory()
+            listDirectory = fileinList.getDirectoryList()
             for directory in listDirectory:
                 print directory
         
