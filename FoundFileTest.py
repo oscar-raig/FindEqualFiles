@@ -1,6 +1,6 @@
 import unittest
 from packagefile.FoundFile import FoundFile
-from packagefile.FileCollection import FileCollection
+from FileCollection import FileCollection
 
 class TestFoundFile(unittest.TestCase):
     

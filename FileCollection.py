@@ -5,7 +5,7 @@ from logging import root
 from packagefile.FoundFile import FoundFile
 from packagefile.RepeatedFile import RepeatedFile
 from Finder.Containers_and_folders import folder
-from objc._objc import NULL
+
 
 class FileCollection:
   
@@ -117,39 +117,17 @@ class FileCollection:
             for directory in listDirectory:
                 print directory
         
+    def splitInFolder( self, directoryToSearch):
+        print "splitInFolder: Directory To search " ,directoryToSearch
 
-if __name__ == '__main__':
-    import sys, getopt
-    directory = ''
-    extension = ''
-    try:
-        opts, args = getopt.getopt(sys.argv[1:],"hde",["directory=","extension="])
-    except getopt.GetoptError:
-        print 'FileCollection.py --d directory --e *.png'
-        sys.exit(2)
-    for opt, arg in opts:
-            if opt == '-h':
-                print 'FileCollection.py --d directory --e *.png'
-                sys.exit()
-            elif opt in ("-d", "--directory"):
-                    directory = arg
-            elif opt in ("-e", "--extension"):
-                    extension = arg
-            
-    print 'Directory is "', directory
-   
-    print "Begin searching repeated files"
-    
-    fileCollection = FileCollection()
-    fileCollection.FindFiles(directory,extension)
-#    fileCollection.PrintFiles()
-#    sys.exit()
-    
-    listOfRepeatedFiles = fileCollection.getFilesWithSameName()
-    print "List of Repeated Files ====="
-    fileCollection.PrintRepeatedFiles( listOfRepeatedFiles )
-    
-    
-    
-    print "End of Repeated Files ====="
+        for root, dirs, files in os.walk(directoryToSearch):
+            print "root",root
+            print "dirs",dirs
+            print "files",files
+            self.moveToFolder( root, files, directoryToSearch )
+
+    def moveToFolder( self, root,files,directoryToSearch):
+         print "moveToFolder: Directory To search " ,directoryToSearch     
+
+
 
